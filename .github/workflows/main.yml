@@ -1,11 +1,25 @@
-# This is a common basic workflow
-name: wf1
-on: 
+name: CI
+on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: this is my first step
-        run: echo "hello from GTA"
+      - uses: actions/checkout@v3
+
+ 
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+ 
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project
+      - name: Create a file
+        run: touch /tmp/gta1
+      - name: list files
+        run: ls
