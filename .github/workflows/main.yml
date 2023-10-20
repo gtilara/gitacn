@@ -2,9 +2,10 @@ name: CI
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
 
@@ -18,6 +19,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
+          sleep 30
+          uname -a
+          cat /etc/os-release
           echo test, and deploy your project
       - name: Create a file
         run: touch /tmp/gta1
